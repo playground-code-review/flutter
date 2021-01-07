@@ -1,6 +1,10 @@
 # playground
 
-Flutter playground application.
+코드리뷰 놀이터입니다.
+
+마음껏 테스트해보세요.
+
+좋은 자료 있으면 공유하시구요.
 
 ## Getting Started
 
