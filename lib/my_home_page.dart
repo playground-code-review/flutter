@@ -32,6 +32,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -73,6 +79,15 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            RaisedButton(
+              onPressed: _resetCounter,
+              child: Text(
+                'RESET'
+              ),
+            )
           ],
         ),
       ),
