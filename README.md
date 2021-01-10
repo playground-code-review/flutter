@@ -6,6 +6,8 @@
 
 좋은 자료 있으면 공유하시구요.
 
+포크 안하고 원본 사용하고 푸쉬는 특정 브렌치로^^
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
