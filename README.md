@@ -6,6 +6,8 @@
 
 좋은 자료 있으면 공유하시구요.
 
+# kakao open chat room
+https://open.kakao.com/o/gctXO4Pc
 
 # guide video
 https://youtu.be/eCl3oVq0EoY
