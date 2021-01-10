@@ -6,6 +6,11 @@
 
 좋은 자료 있으면 공유하시구요.
 
+
+# guide video
+https://youtu.be/eCl3oVq0EoY
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
