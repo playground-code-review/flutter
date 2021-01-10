@@ -32,12 +32,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _decrementCounter() {
-    setState(() {
-      _counter -= 2;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -92,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           FloatingActionButton(
             backgroundColor: Colors.red,
-            onPressed: _decrementCounter,
+            onPressed: () => setState(() => _counter -= 2),
             tooltip: 'Decrement',
             child: Icon(Icons.exposure_minus_2),
           ),
