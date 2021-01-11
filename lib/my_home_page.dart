@@ -52,9 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             RaisedButton(
               onPressed: _resetCounter,
-              child: Text(
-                'RESET'
-              ),
+              child: Text('RESET'),
             )
           ],
         ),
@@ -66,7 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             FloatingActionButton(
               backgroundColor: Colors.blue,
-              onPressed: _incrementCounter,
+              onPressed: () {
+                if (_counter < 10) _incrementCounter();
+              },
               tooltip: 'Increment',
               child: Icon(Icons.add),
             ),
@@ -75,7 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             FloatingActionButton(
               backgroundColor: Colors.red,
-              onPressed: _decrementCounter,
+              onPressed: () {
+                if (_counter > 0) _decrementCounter();
+              },
               tooltip: 'Decrement',
               child: Icon(Icons.remove),
             ),
