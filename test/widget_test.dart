@@ -34,5 +34,8 @@ void main() {
     // Verify that our counter has incremented.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('2'), findsNothing);
+
+    // AppBar 제목 확인
+    expect(find.text('PlayGround'), findsOneWidget);
   });
 }
