@@ -16,21 +16,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      if (_counter < max - 2) {
-        _counter += 2;
-      } else {
-        _counter = 10;
-      }
+      _counter = (_counter + 2).clamp(min, max);
     });
   }
 
   void _decrementCounter() {
     setState(() {
-      if (_counter > min + 2) {
-        _counter -= 2;
-      } else {
-        _counter = 0;
-      }
+      _counter = (_counter - 2).clamp(min, max);
     });
   }
 
