@@ -52,9 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             RaisedButton(
               onPressed: _resetCounter,
-              child: Text(
-                'RESET'
-              ),
+              child: Text('RESET'),
             )
           ],
         ),
