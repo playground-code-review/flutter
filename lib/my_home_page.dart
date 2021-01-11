@@ -68,19 +68,19 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: Wrap(
         spacing: 5,
         children: [
-          _buildButton(2, Icons.add),
-          _buildButton(-2, Icons.remove),
+          _buildButton(2, "Increment 2", Icons.add),
+          _buildButton(-2, "Decrement 2", Icons.remove),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
-  Widget _buildButton(number, iconData) {
+  Widget _buildButton(number, tooltip, iconData) {
     return FloatingActionButton(
       onPressed: () => setState(() {
         _counter += number;
       }),
-      tooltip: 'Increment 2',
+      tooltip: tooltip,
       child: Icon(iconData),
     );
   }
