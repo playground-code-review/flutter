@@ -28,8 +28,13 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
-      ++_counter;
+      _counter += 2;
+    });
+  }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
     });
   }
 
@@ -74,6 +79,15 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            RaisedButton(
+              onPressed: _resetCounter,
+              child: Text(
+                'RESET'
+              ),
+            )
           ],
         ),
       ),

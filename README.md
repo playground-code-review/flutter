@@ -6,7 +6,12 @@
 
 좋은 자료 있으면 공유하시구요.
 
-포크 안하고 원본 사용하고 푸쉬는 특정 브렌치로^^
+# kakao open chat room
+https://open.kakao.com/o/gctXO4Pc
+
+# guide video
+https://youtu.be/eCl3oVq0EoY
+
 
 ## Getting Started
 
