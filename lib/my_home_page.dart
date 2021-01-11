@@ -32,6 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    int _scaling_counter = _counter.clamp(0,10);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -44,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '$_scaling_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(
