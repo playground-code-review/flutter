@@ -11,17 +11,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  static const int minCounter = 0;
+  static const int maxCounter = 10;
 
-  void _incrementCounter() {
+  void _applyCounter(int count) {
+    count = count.clamp(minCounter, maxCounter);
+
     setState(() {
-      _counter += 2;
+      _counter = count;
     });
   }
 
+  void _incrementCounter() {
+    _applyCounter(_counter + 2);
+  }
+
   void _decrementCounter() {
-    setState(() {
-      _counter -= 2;
-    });
+    _applyCounter(_counter - 2);
   }
 
   void _resetCounter() {
