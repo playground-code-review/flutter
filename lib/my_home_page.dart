@@ -11,16 +11,26 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final min = 0;
+  final max = 10;
 
   void _incrementCounter() {
     setState(() {
-      _counter += 2;
+      if (_counter < max - 2) {
+        _counter += 2;
+      } else {
+        _counter = 10;
+      }
     });
   }
 
   void _decrementCounter() {
     setState(() {
-      _counter -= 2;
+      if (_counter > min + 2) {
+        _counter -= 2;
+      } else {
+        _counter = 0;
+      }
     });
   }
 
@@ -52,9 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             RaisedButton(
               onPressed: _resetCounter,
-              child: Text(
-                'RESET'
-              ),
+              child: Text('RESET'),
             )
           ],
         ),
