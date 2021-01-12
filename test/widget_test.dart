@@ -11,31 +11,64 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:playground/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  group('Counter', () {
+    testWidgets('Verify that our counter starts at 0.', (WidgetTester tester) async {
+      await tester.pumpWidget(MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      expect(find.text('0'), findsOneWidget);
+      expect(find.text('1'), findsNothing);
+    });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    testWidgets('Verify that our counter has incremented.', (WidgetTester tester) async {
+      await tester.pumpWidget(MyApp());
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('2'), findsOneWidget);
+      // Tap the '+' icon and trigger a frame.
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pump();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.remove));
-    await tester.pump();
+      expect(find.text('0'), findsNothing);
+      expect(find.text('2'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('2'), findsNothing);
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pump();
+      expect(find.text('4'), findsOneWidget);
 
-    // AppBar 제목 확인
-    expect(find.text('PlayGround'), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pump();
+      expect(find.text('6'), findsOneWidget);
+
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pump();
+      expect(find.text('8'), findsOneWidget);
+
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pump();
+      expect(find.text('10'), findsOneWidget);
+
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pump();
+      expect(find.text('10'), findsOneWidget);
+    });
+
+    testWidgets('Verify that our counter has decremented.', (WidgetTester tester) async {
+      await tester.pumpWidget(MyApp());
+
+      // Tap the '-' icon and trigger a frame.
+      await tester.tap(find.byIcon(Icons.remove));
+      await tester.pump();
+      expect(find.text('0'), findsOneWidget);
+      expect(find.text('2'), findsNothing);
+
+      await tester.tap(find.byIcon(Icons.remove));
+      await tester.pump();
+      expect(find.text('0'), findsOneWidget);
+    });
+  });
+
+  group('App', () {
+    testWidgets('AppBar 제목 확인', (WidgetTester tester) async {
+      await tester.pumpWidget(MyApp());
+      expect(find.text('PlayGround'), findsOneWidget);
+    });
   });
 }
