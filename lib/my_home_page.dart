@@ -11,19 +11,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  static const int STEP = 2;
 
   void _incrementCounter() {
     setState(() {
-      final int increased = _counter + STEP;
-      _counter = getClamped(increased);
+      _counter += 2;
     });
   }
 
   void _decrementCounter() {
     setState(() {
-      final int decreased = _counter - STEP;
-      _counter = getClamped(decreased);
+      _counter -= 2;
     });
   }
 
@@ -31,16 +28,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter = 0;
     });
-  }
-
-  /// [counter]는 [LOWER_LIMIT]에서 [UPPER_LIMIT] 사이의 값만 허용한다.
-  /// ex)
-  ///   getClamped(-1) = 0, getClamped(0) = 0, getClamped(1) = 1, getClamped(3) = 3
-  ///   getClamped(7) = 7, getClamped(10) = 10, getClamped(11) = 10
-  int getClamped(int value) {
-    const int LOWER_LIMIT = 0;
-    const int UPPER_LIMIT = 10;
-    return value.clamp(LOWER_LIMIT, UPPER_LIMIT);
   }
 
   @override
@@ -65,7 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             RaisedButton(
               onPressed: _resetCounter,
-              child: Text('RESET'),
+              child: Text(
+                'RESET'
+              ),
             )
           ],
         ),
