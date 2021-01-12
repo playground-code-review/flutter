@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:core';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
