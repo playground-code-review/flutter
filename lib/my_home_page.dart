@@ -13,13 +13,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    _counter += 2;
-    setState(() {
-      _counter = _counter.clamp(0, 10);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,26 +23,64 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            RaisedButton(
-              onPressed: () {
-                setState(() {
-                  this._counter = 0;
-                });
-              },
-              child: Text("CLEAR"),
-            ),
+            this._buildCounterText(),
+            this._buildDecreaseCounterBy2(),
+            this._buildClearCounter(),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: this._buildFloatingButton(),
+    );
+  }
+
+  /// _counter 글자 위젯.
+  Text _buildCounterText() {
+    return Text(
+      '${_counter.clamp(0, 10)}',
+      style: Theme.of(context).textTheme.headline4,
+    );
+  }
+
+  /// _counter 텍스트 상태 관리.
+  void setCounterText() {
+    setState(() {
+      this._counter = this._counter.clamp(0, 10);
+    });
+  }
+
+  /// 2씩 증가하는 floating 버튼 위젯.
+  FloatingActionButton _buildFloatingButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        this._counter += 2;
+        this.setCounterText();
+      },
+      tooltip: 'Increment',
+      child: Icon(Icons.add),
+    );
+  }
+
+  /// 2씩 감소 하는 버튼 위젯.
+  RaisedButton _buildDecreaseCounterBy2() {
+    return RaisedButton(
+      onPressed: () {
+        this._counter -= 2;
+        this.setCounterText();
+      },
+      color: Colors.red[400],
+      textColor: Colors.white,
+      child: Text("-2"),
+    );
+  }
+
+  /// 초기화 버튼 위젯.
+  RaisedButton _buildClearCounter() {
+    return RaisedButton(
+      onPressed: () {
+        this._counter = 0;
+        this.setCounterText();
+      },
+      child: Text("CLEAR"),
     );
   }
 }
