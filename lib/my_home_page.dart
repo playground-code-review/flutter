@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -11,16 +13,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _min = 0;
+  int _max = 10;
+
+  /*
+  double clamp<T extends num>(T number, T low, T high) =>
+      max(low * 1.0, min(number * 1.0, high * 1.0));
+  */
 
   void _incrementCounter() {
     setState(() {
-      _counter += 2;
+      _counter = max(_min, min(_counter + 2, _max));
     });
   }
 
   void _decrementCounter() {
     setState(() {
-      _counter -= 2;
+      _counter = max(_min, min(_counter - 2, _max));
     });
   }
 
@@ -52,9 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             RaisedButton(
               onPressed: _resetCounter,
-              child: Text(
-                'RESET'
-              ),
+              child: Text('RESET'),
             )
           ],
         ),
