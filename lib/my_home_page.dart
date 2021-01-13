@@ -12,6 +12,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _min = 0;
+  int _max = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   /// _counter 글자 위젯.
   Text _buildCounterText() {
     return Text(
-      '${_counter.clamp(0, 10)}',
+      '$_counter',
       style: Theme.of(context).textTheme.headline4,
     );
   }
@@ -44,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   /// _counter 텍스트 상태 관리.
   void setCounterText() {
     setState(() {
-      this._counter = this._counter.clamp(0, 10);
+      this._counter = this._counter.clamp(_min, _max);
     });
   }
 
