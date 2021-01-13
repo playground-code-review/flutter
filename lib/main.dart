@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:playground/my_home_page.dart';
+import 'package:playground/my_home_page/widget/my_home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'PlayGround'),
+      home: MyHomePage(),
     );
   }
 }
