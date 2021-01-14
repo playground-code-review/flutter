@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:playground/counter_provider.dart';
 import 'package:playground/my_home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: ChangeNotifierProvider<CounterProvider>(
+          create: (_)=>CounterProvider(),
+          child: MyHomePage(title: 'Flutter Demo Home Page')),
     );
   }
 }
