@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hooks_riverpod/all.dart';
 
 import 'package:playground/main.dart';
 
@@ -14,7 +15,9 @@ void main() {
   group('Counter', () {
     testWidgets('Verify that our counter starts at 0.',
         (WidgetTester tester) async {
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(ProviderScope(
+        child: MyApp(),
+      ));
 
       expect(find.text('0'), findsOneWidget);
       expect(find.text('1'), findsNothing);
@@ -22,7 +25,9 @@ void main() {
 
     testWidgets('Verify that our counter has incremented.',
         (WidgetTester tester) async {
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(ProviderScope(
+        child: MyApp(),
+      ));
 
       // Tap the '+' icon and trigger a frame.
       await tester.tap(find.byIcon(Icons.add));
@@ -54,7 +59,9 @@ void main() {
 
     testWidgets('Verify that our counter has decremented.',
         (WidgetTester tester) async {
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(ProviderScope(
+        child: MyApp(),
+      ));
 
       // Tap the '-' icon and trigger a frame.
       await tester.tap(find.byIcon(Icons.remove));
@@ -70,7 +77,9 @@ void main() {
 
   group('App', () {
     testWidgets('AppBar 제목 확인', (WidgetTester tester) async {
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(ProviderScope(
+        child: MyApp(),
+      ));
       expect(find.text('PlayGround'), findsOneWidget);
     });
   });
