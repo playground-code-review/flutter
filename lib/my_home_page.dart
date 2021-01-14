@@ -1,40 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+import 'counter_provider.dart';
 
+class MyHomePage extends StatelessWidget {
   final String title;
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter = (_counter+2).clamp(0,10);
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      _counter = (_counter-2).clamp(0, 10);
-    });
-  }
-
-  void _resetCounter() {
-    setState(() {
-      _counter = 0;
-    });
-  }
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
         child: Column(
@@ -44,14 +22,14 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              context.watch<Counter>().count.toString(),
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(
               height: 20,
             ),
             RaisedButton(
-              onPressed: _resetCounter,
+              onPressed: () => context.read<Counter>().resetCounter(),
               child: Text('RESET'),
             )
           ],
@@ -64,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             FloatingActionButton(
               backgroundColor: Colors.blue,
-              onPressed: _incrementCounter,
+              onPressed: () => context.read<Counter>().incrementCounter(),
               tooltip: 'Increment',
               child: Icon(Icons.add),
             ),
@@ -73,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             FloatingActionButton(
               backgroundColor: Colors.red,
-              onPressed: _decrementCounter,
+              onPressed: () => context.read<Counter>().decrementCounter(),
               tooltip: 'Decrement',
               child: Icon(Icons.remove),
             ),
